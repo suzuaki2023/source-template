@@ -134,7 +134,7 @@ import logging
 import os
 import time
 
-def main(input='', output='', log_dir='./log', verbose=0):
+def main(input='./input', output='./output', log_dir='./log', verbose=0):
     # ログ設定
     log_file = os.path.join(log_dir, 'task.log')
     logging.basicConfig(filename=log_file, level=logging.INFO, 

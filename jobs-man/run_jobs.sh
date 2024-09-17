@@ -32,7 +32,7 @@ fi
 process_folders() {
     # 処理対象フォルダ内の .job フォルダをリストアップして、日付・時刻順にソート
 
-    job_folders=$(ls -dt "$TARGET_DIR"/*.job)
+    job_folders=$(ls -dt "$TARGET_DIR"/*.job 2> /dev/null)
 
     # フォルダを新しい順に処理
     for folder in $job_folders; do
@@ -82,8 +82,8 @@ process_folders() {
 
 # 無限ループ処理
 if [ "$LOOP" = true ]; then
+    echo "$(current_time) - loop start..."
     while true; do
-        echo "$(current_time) - loop start..."
         process_folders
         sleep 10  # 10秒間隔でフォルダの検索を行う
     done
